@@ -4,31 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/output.css" rel="stylesheet">
+    <link href="/styles.css" rel="stylesheet">
     <title>
         <%= title %>
     </title>
 </head>
 
 <body>
-    <nav class="flex items-center justify-between gap-5 bg-[#ff1493] p-10">
-        <h1 class="font-bold"><span>Mini Message Board</span> <span class="text-emerald-400 font-extrabold">Using
-                NodeJs</span></h1>
-        <div class="flex items-center gap-5">
-            <a class="font-semibold hover:translate-x-[-5px] transition-all ease-in-out" href="/">Messages</a>
-            <a class="font-semibold hover:translate-x-[-5px] text-white transition-all ease-in-out" href="/new">Write a message</a>
+    <nav>
+        <h1><span>Mini Message Board</span> <span class="highlight">Using NodeJs</span></h1>
+        <div class="nav-links">
+            <a href="/">Messages</a>
+            <a class="active" href="/new">Write a message</a>
         </div>
     </nav>
-    <section class="bg-amber-100 p-10">
-        <h1 class="text-3xl font-bold">Add a new message!</h1>
-        <form class="flex flex-col justify-center items-start gap-3 p-10" method="POST" action="/new">
-            <input class="p-4 px-6 bg-[#ff1493] rounded-md border-none outline-white" type="text" name="messageUser"
-                placeholder="Your name" required />
-            <textarea class="p-4 px-8 bg-[#ff1493] rounded-md border-none outline-white resize-none h-42"
-                name="messageText" placeholder="Your message" required></textarea>
-            <button
-                class="bg-emerald-400 text-white font-semibold p-3 rounded-md hover:scale-[1.05] active:scale-[0.95] transition-all ease-in-out"
-                type="submit">Submit</button>
+    <section class="form-section">
+        <h1>Add a new message!</h1>
+        <form method="POST" action="/new">
+            <input type="text" name="messageUser" placeholder="Your name" required />
+            <textarea name="messageText" placeholder="Your message" required></textarea>
+            <button type="submit">Submit</button>
         </form>
     </section>
 </body>
