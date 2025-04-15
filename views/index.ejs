@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/output.css" rel="stylesheet">
+    <title><%= title %></title>
+</head>
+
+<body>
+    <nav class="flex items-center justify-between gap-5 bg-[#ff1493] p-10">
+        <h1 class="font-bold"><span>Mini Message Board</span> <span class="text-emerald-400 font-extrabold">Using NodeJs</span></h1>
+        <div class="flex items-center gap-5">
+            <a class="font-semibold text-white hover:translate-x-[-5px] transition-all ease-in-out" href="/">Messages</a>
+            <a class="font-semibold hover:translate-x-[-5px] transition-all ease-in-out" href="/new">Write a message</a>
+        </div>
+    </nav>
+    <ul class="bg-amber-100 flex flex-col justify-center items-start gap-3 p-10">
+        <% messages.forEach(msg=> { %>
+            <li class="p-2 bg-fuchsia-400 rounded-md">
+                <strong>
+                    <%= msg.user %>:
+                </strong>
+                <%= msg.text %><br>
+                    <small>
+                        <% msg.added.toLocaleString() %>
+                    </small>
+            </li>
+            <% }) %>
+    </ul>
+</body>
+
+</html>
