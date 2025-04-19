@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Message Board</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>
+                <%= title %>
+            </h1>
+
+            <form action="/message" method="POST" class="message-form">
+                <input type="text" name="name" placeholder="Your name" required />
+                <textarea name="message" placeholder="Your message" required></textarea>
+                <button type="submit">Post</button>
+            </form>
+        </header>
+
+        <ul class="messages">
+            <% messages.forEach(msg=> { %>
+                <li class="content">
+                    <strong class="name">
+                        <%= msg.name %>:
+                    </strong>
+                    <span>
+                        <%= msg.message %>
+                    </span>
+                    <span class="time">[<%= msg.time %>]</span>
+                </li>
+                <% }) %>
+        </ul>
+    </div>
+
+    <script>
+        function getRandomPleasantColor() {
+            const colors = [
+                "#FF6B6B", // soft red
+                "#6BCB77", // soft green
+                "#4D96FF", // soft blue
+                "#FFD93D", // pastel yellow
+                "#FF9CEE", // light pink
+                "#B28DFF", // light purple
+                "#FEC260", // peach
+                "#95DAC1", // mint
+                "#E4BAD4", // lavender pink
+                "#A0E7E5"  // aqua
+            ];
+
+            const randomIndex = Math.floor(Math.random() * colors.length);
+            return colors[randomIndex];
+        }
+
+        const names = document.querySelectorAll(".name");
+
+        names.forEach(name => {
+            name.style.color = getRandomPleasantColor();
+        })
+    </script>
+</body>
+
+</html>
